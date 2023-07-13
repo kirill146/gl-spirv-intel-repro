@@ -10,3 +10,16 @@ glslc -fshader-stage=vert vs.glsl -o vs.spirv
 glslc -fshader-stage=frag ps2.glsl -o ps2.spirv
 glslc -fshader-stage=vert vs2.glsl -o vs2.spirv
 ```
+
+Output of the program:
+```
+Picked Intel(R) RaptorLake-S Mobile Graphics Controller
+Debug callback:
+         source: SHADER_COMPILER
+         type: ERROR
+         id: 0x1
+         severity: HIGH
+         message: SHADER_ID_LINK error has been generated. GLSL link failed for program 5, "":
+Info log is empty
+Cannot link program
+```
