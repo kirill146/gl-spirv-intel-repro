@@ -7,4 +7,6 @@ Shaders are built with
 ```
 glslc -fshader-stage=frag ps.glsl -o ps.spirv
 glslc -fshader-stage=vert vs.glsl -o vs.spirv
+glslc -fshader-stage=frag ps2.glsl -o ps2.spirv
+glslc -fshader-stage=vert vs2.glsl -o vs2.spirv
 ```

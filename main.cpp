@@ -157,15 +157,28 @@ void run() {
 	glDebugMessageCallback(DebugCallback, nullptr);
 	std::cout << "Picked " << glGetString(GL_RENDERER) << std::endl;
 
-	uint32_t vs = CreateShader("shaders/vs.spirv", GL_VERTEX_SHADER);
-	uint32_t ps = CreateShader("shaders/ps.spirv", GL_FRAGMENT_SHADER);
-	for (int i = 0; i < 2; i++) {
-		uint32_t program = CreateProgram(vs, ps); // failed on the second iteration
-		glDeleteProgram(program);
+	// example 1
+	{
+		uint32_t vs = CreateShader("shaders/vs.spirv", GL_VERTEX_SHADER);
+		uint32_t ps = CreateShader("shaders/ps.spirv", GL_FRAGMENT_SHADER);
+		for (int i = 0; i < 2; i++) {
+			uint32_t program = CreateProgram(vs, ps); // failed on the second iteration
+			glDeleteProgram(program);
+		}
+		glDeleteShader(ps);
+		glDeleteShader(vs);
 	}
-	
-	glDeleteShader(ps);
-	glDeleteShader(vs);
+
+	// example 2
+	{
+		uint32_t vs = CreateShader("shaders/vs2.spirv", GL_VERTEX_SHADER);
+		uint32_t ps = CreateShader("shaders/ps2.spirv", GL_FRAGMENT_SHADER);
+		uint32_t program = CreateProgram(vs, ps); // failed
+		glDeleteProgram(program);
+		glDeleteShader(ps);
+		glDeleteShader(vs);
+	}
+
 	glfwTerminate();
 }
 
