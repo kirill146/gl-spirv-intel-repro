@@ -121,7 +121,6 @@ uint32_t CreateShader(std::filesystem::path const& path, GLenum stage) {
 
 uint32_t CreateProgram(uint32_t vs, uint32_t ps) {
 	uint32_t program = glCreateProgram();
-	program = glCreateProgram();
 	assert(program != 0);
 	glAttachShader(program, vs);
 	glAttachShader(program, ps);
